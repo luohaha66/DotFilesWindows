@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+alias l='ls -CF --color=auto'
+alias ls='ls --show-control-chars --sort=extension --color=auto'
+alias ll='ls -alF --color=auto --time-style=long-iso'
+alias la='ls -A --color=auto'
+alias lh='ls -lh'
+# List only directories
+alias lsd="ls -lF --color=auto | grep --color=auto '^d'"
+alias psg='ps -aux | grep'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias show='apt-cache search'
+alias get='sudo apt-get install'
+alias reload='source ~/.bashrc'
+alias tar_cgz='tar --use-compress-program=pigz -cpf'
+alias tar_xgz='tar --use-compress-program=pigz -xpf'
+alias tar_cxz='tar --use-compress-program="xz -T 0" -cpf'
+alias tar_xxz='tar --use-compress-program="xz -T 0" -xpf'
+alias cppstd='gcc -E -dM - < /dev/null | grep __STDC_VERSION__'
+alias ln_py2='sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1'
+alias ln_py3='sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2'
+alias chose_py='sudo update-alternatives --config python'
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Git Commands
+# Add and Commit are used as functions
+alias ga='git add'
+alias gb='git branch -v'
+alias gba='git branch -a -v'
+alias gbd='git branch -d'
+alias gc='git clone'
+alias gca='git commit --amend'
+alias gcm='git commit -m'
+alias gck='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git d'
+alias gdm='git dm'
+alias gfc='git fc'
+alias gfm='git fm'
+alias gl='git l'
+alias gm='git merge'
+alias go='git go'
+alias gpatch='git format-patch -M'
+alias gpl='git pull --rebase'
+alias gplo='git pull origin master'
+alias gps='git push'
+alias gpso='git push origin master'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias grmob='git push origin --delete'
+alias grmot='git push origin --delete tag'
+alias gs='git status'
+alias gsh='git stash'
+alias gshp='git stash pop'
+alias gsub_init='git submodule update --init --recursive'
+alias gt='git tag -l'
+alias gub='git remote update origin -p'
+alias gwho='git whoami'
+
+# new file
+alias new_h='cp ~/template/h.h'
+alias new_hpp='cp ~/template/h.hpp'
+alias new_c='cp ~/template/c.c'
+alias new_py='cp ~/template/py.py'
+alias new_mk='cp ~/template/mk.mk'

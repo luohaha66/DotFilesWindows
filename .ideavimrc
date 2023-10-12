@@ -1,0 +1,5 @@
+set vb t_vb=
+au GuiEnter * set t_vb=
+
+set clipboard=unnamed
+set clipboard+=ideaput
